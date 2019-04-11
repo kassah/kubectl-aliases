@@ -35,6 +35,7 @@ def main():
     ops = [
         ('a', 'apply --recursive -f', None, None),
         ('d', 'describe', None, None),
+        ('c', 'create', None, None),
         ('ed', 'edit', None, None),
         ('ex', 'exec -i -t', None, None),
         ('g', 'get', None, None),
@@ -46,17 +47,20 @@ def main():
         ]
 
     res = [
-        ('cm', 'configmap', ['g', 'd', 'rm'], None),
-        ('dep', 'deployment', ['g', 'd', 'rm'], None),
+        ('cm', 'configmap', ['g', 'd', 'c', 'rm'], None),
+        ('cr', 'clusterrole', ['g', 'd', 'c', 'rm'], None),
+        ('crb', 'clusterrolebinding', ['g', 'd', 'c', 'rm'], None),
+        ('dep', 'deployment', ['g', 'd', 'c', 'rm'], None),
+        ('j', 'job', ['g', 'd', 'c', 'rm'], None),
         ('ing', 'ingress', ['g', 'd', 'rm'], None),
         ('no', 'nodes', ['g', 'd'], ['sys']),
-        ('ns', 'namespaces', ['g', 'd', 'rm'], ['sys']),
+        ('ns', 'namespaces', ['g', 'd', 'c', 'rm'], ['sys']),
         ('po', 'pods', ['g', 'd', 'rm'], None),
         ('pv', 'persistentvolumes', ['g', 'd', 'rm'], None),
         ('pvc', 'persistentvolumeclaims', ['g', 'd', 'rm'], None),
-        ('sec', 'secret', ['g', 'd', 'rm'], None),
+        ('sec', 'secret', ['g', 'd', 'c', 'rm'], None),
         ('ss', 'statefulsets', ['g', 'd', 'rm'], None),
-        ('svc', 'service', ['g', 'd', 'rm'], None),
+        ('svc', 'service', ['g', 'd', 'c', 'rm'], None),
         ]
     res_types = [r[0] for r in res]
 
